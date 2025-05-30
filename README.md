@@ -1,2 +1,3 @@
-# github-actions-learn
-Proyecto de aprendizaje para Github Actions
+# GitHub Actions Learn
+
+Proyecto de aprendizaje para Github Actions.
