@@ -12,3 +12,4 @@ jobs:
       - run: echo "Hola Mundo desde GitHub Actions"
       - run: echo "¡Esta es una acción de ejemplo!"
       - run: echo "¡Listo para desplegar!"
+      - run: echo "¡Gracias por usar esta acción de ejemplo!"
