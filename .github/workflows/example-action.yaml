@@ -1,13 +1,18 @@
+#Archivo YAML que define una serie de pasos a seguir en GitHub Actions 
 name: "Hola Mundo Action"
 
+#Event: Disparador que inicia un workflow
 on:
   push:
     branches:
       - main
 
+#Job: Conjunto de pasos que se ejecutan en un runner, puede tener múltiples pasos
 jobs:
   deploy:
+    #Runner: Entorno donde se ejecuta el job
     runs-on: ubuntu-latest
+    #Steps: Lista de pasos que se ejecutan en el job
     steps:
       - run: echo "Hola Mundo desde GitHub Actions"
       - run: echo "¡Esta es una acción de ejemplo!"
