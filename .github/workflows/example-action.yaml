@@ -5,7 +5,7 @@ name: "Hola Mundo Action"
 on:
   push:
     branches:
-      - main
+      - develop
 
 #Job: Conjunto de pasos que se ejecutan en un runner, puede tener múltiples pasos
 jobs:

@@ -9,3 +9,11 @@ jobs:
     steps:
       - name: Hola Mundo
         run: echo "Hola Mundo"
+  
+  second_jobs:
+    needs: first_jobs # Dependencia que finalice el primer job antes de iniciar este
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Hola Mundo 2
+        run: echo "Hola Mundo 2"
