@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - name: Hola Mundo
-        run: echo "Hola Mundo " + ${{ github.event_name }} + " " + ${{ github.actor }}
+        run: echo "Hola Mundo ${{ github.event_name }}  ${{ github.actor }}"
   
   second_jobs:
     needs: first_jobs # Dependencia que finalice el primer job antes de iniciar este. Puede ser un array si hay más de uno.
@@ -16,4 +16,4 @@ jobs:
 
     steps:
       - name: Hola Mundo 2
-        run: echo "Hola Mundo 2 " + ${{ github.action_status }} + " " + ${{ github.actor }}
+        run: echo "Hola Mundo 2 ${{ github.action }} ${{ github.ref }}"
