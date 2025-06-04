@@ -1,0 +1,18 @@
+name: Deploy Strategy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        message: [ "Hola Mundo", "¡Esta es una acción de ejemplo!", "¡Listo para desplegar!" ]
+    
+    steps:
+      - name: Print Message
+        run: echo "${{ matrix.message }}"

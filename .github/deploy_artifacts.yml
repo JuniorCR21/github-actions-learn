@@ -11,7 +11,7 @@ jobs:
 
     outputs:
       salida: ${{ steps.step_1.outputs.my_var }}
-    
+
     steps:
       - name: Generar Archivo
         run: echo "Contenido del archivo" >> archivo.log
@@ -31,6 +31,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: archivo-log
-    
+
       - name: Mostrar contenido del archivo
         run: cat archivo.log
