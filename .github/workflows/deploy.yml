@@ -4,19 +4,33 @@ on: push
 
 jobs:
   first_jobs:
+    name: "Hola Mundo"  # Nombre del job, se puede usar para identificarlo en la interfaz de GitHub Actions.
     runs-on: ubuntu-latest
 
-    env:
-      MY_ENV_VAR: "Hola Mundo"
-
     steps:
-      - name: Hola Mundo
-        run: echo "$MY_ENV_VAR ${{ github.event_name }}  ${{ github.actor }}"
+      - name: Working dir
+        run: ls -al
+
+      - name: Action
+        uses: actions/checkout@v4 # Acción que permite clonar el repositorio en el runner.
+    
+      - name: Working dir
+        run: ls -al
   
   second_jobs:
     needs: first_jobs # Dependencia que finalice el primer job antes de iniciar este. Puede ser un array si hay más de uno.
     runs-on: ubuntu-latest
 
+    env:
+      MY_ENV_VAR: "Hola Mundo"
+      
     steps:
       - name: Hola Mundo 2
-        run: echo "Hola Mundo 2 ${{ github.action }} ${{ github.ref }}"
+        run: echo "$MY_ENV_VAR ${{ github.action }} ${{ github.ref }}"
+    
+      - name: Working dir
+        id: step_2
+        run: echo "my_var=Hola Mundo" >> $GITHUB_OUTPUT # Define una variable de salida que puede ser usada en otros jobs o pasos.
+    
+      - name: Working dir 2
+        run: echo "El valor de my_var es ${{ steps.step_2.outputs.my_var }}" # Usa la variable de salida definida en el paso anterior.
