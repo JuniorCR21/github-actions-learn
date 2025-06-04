@@ -1,0 +1,23 @@
+name: "Deploy Artifacts"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+
+    outputs:
+      salida: ${{ steps.step_1.outputs.my_var }}
+    
+    steps:
+      - name: Generar Archivo
+        run: echo "Contenido del archivo" >> archivo.log
+
+      - name: Subir artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: archivo-log
+          path: archivo.log
